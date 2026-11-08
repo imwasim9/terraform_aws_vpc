@@ -1,7 +1,7 @@
 resource "aws_vpc_peering_connection" "roboshop" {
   count       = var.is_peering_required ? 1 : 0
   peer_vpc_id = aws_vpc.main.id
-  vpc_id      = data.aws_vpc.default
+  vpc_id      = data.aws_vpc.default.id
   accepter {
     allow_remote_vpc_dns_resolution = true
   }
